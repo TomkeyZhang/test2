@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stundets>  
+  <student id="2009081315">  
+    <name>饶伟</name>  
+    <speciality>计算机科学与技术</speciality>  
+    <qq>812200157</qq>  
+  </student>  
+  
+    <student id="2009081316">  
+    <name>小伟</name>  
+    <speciality>网络工程</speciality>  
+    <qq>812200156</qq>  
+  </student>  
+    <student id="2009081318">  
+    <name>伟哥</name>  
+    <speciality>软件工程</speciality>  
+    <qq>812200158</qq>  
+  </student>  
+  
+</stundets>  
