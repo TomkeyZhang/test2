@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="100dip"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="是空间的撒" />
+
+    <TextView
+        android:id="@+id/email_tv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="空间第三" />
+
+</LinearLayout>
