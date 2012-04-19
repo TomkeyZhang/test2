@@ -1,20 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="100dip"
+    android:layout_height="fill_parent"
     android:background="@android:color/darker_gray"
-    android:orientation="vertical" >
+    android:orientation="horizontal"
+    android:padding="5dip" >
 
     <TextView
         android:id="@+id/name_tv"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="是空间的撒" />
+        android:layout_gravity="center_vertical"
+        android:text="悬浮框" />
 
-    <TextView
-        android:id="@+id/email_tv"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/expand_ll"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="空间第三" />
+        android:visibility="gone" >
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按钮1" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按钮2" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按钮3" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按钮4" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/expand_btn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="展开" />
 
 </LinearLayout>

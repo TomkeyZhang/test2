@@ -14,6 +14,9 @@ import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.IBinder;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MoveableToastService extends Service {
     // private static final String LAYOUT_ID = "layout_id";
@@ -60,9 +63,22 @@ public class MoveableToastService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         if (moveableToast == null) {
-            moveableToast = MoveableToast.create(this,
-                    View.inflate(this, R.layout.toast_test, null), 100, 100,
-                    20, 30, intent.getBooleanExtra(MOVEABLE, false));
+            moveableToast = MoveableToast.create(this, View.inflate(this, R.layout.toast_test, null), 150, 200, 0, 0,
+                    intent.getBooleanExtra(MOVEABLE, false));
+            final Button expandBtn = (Button) moveableToast.findViewById(R.id.expand_btn);
+            final LinearLayout expandLL = (LinearLayout) moveableToast.findViewById(R.id.expand_ll);
+            expandBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (expandLL.getVisibility() == View.VISIBLE) {
+                        expandBtn.setText("展开");
+                        expandLL.setVisibility(View.GONE);
+                    } else {
+                        expandBtn.setText("隐藏");
+                        expandLL.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -72,12 +88,10 @@ public class MoveableToastService extends Service {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        List<RunningTaskInfo> runningList = activityManager
-                                .getRunningTasks(1);
+                        List<RunningTaskInfo> runningList = activityManager.getRunningTasks(1);
                         if ((runningList != null) && (runningList.size() > 0)) {
                             RunningTaskInfo taskinfo = runningList.get(0);
-                            if (taskinfo.baseActivity.getPackageName().equals(
-                                    getPackageName())) {
+                            if (taskinfo.baseActivity.getPackageName().equals(getPackageName())) {
                                 moveableToast.show();
                             } else {
                                 moveableToast.hide();
